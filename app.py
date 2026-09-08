@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 import fastf1
 import pandas as pd
@@ -8,6 +9,7 @@ from datetime import datetime
 # FASTF1 CACHE
 # ============================================================
 
+os.makedirs("fastf1_cache", exist_ok=True)
 fastf1.Cache.enable_cache("fastf1_cache")
 
 # ============================================================
@@ -508,7 +510,12 @@ def load_session(
         "R",
     )
 
-    session.load()
+    session.load(
+        laps=True,
+        telemetry=False,
+        weather=False,
+        messages=False,
+    )
 
     return session.laps
 
