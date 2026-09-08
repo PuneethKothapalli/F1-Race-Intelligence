@@ -3,13 +3,14 @@ import fastf1
 import pandas as pd
 import plotly.graph_objects as go
 from datetime import datetime
+import os
 
 # ============================================================
 # FASTF1 CACHE
 # ============================================================
 
+os.makedirs("fastf1_cache", exist_ok=True)
 fastf1.Cache.enable_cache("fastf1_cache")
-
 
 # ============================================================
 # PAGE CONFIGURATION
